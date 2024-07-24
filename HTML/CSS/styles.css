@@ -1,0 +1,216 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+    color: #fff;
+    background-color: #004d40;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #004d40;
+    padding: 10px 0;
+}
+
+nav a img {
+    max-width: 150px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px; /* Espaçamento uniforme */
+    border-bottom: 2px solid #4CAF50;
+    background-color: #004d40;
+    color: #fff; /* Certificando que o texto do nav é branco */
+}
+
+nav ul {
+    display: flex;
+    align-items: center; /* Alinhar os itens do menu */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav li a {
+    color: #fff;
+    font-size: 1.2em;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav li a:hover {
+    background-color: #4CAF50; /* Efeito hover */
+}
+
+
+
+footer {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-top: 1px solid #45a049;
+    background-color: #004d40;
+}
+
+footer .social-icon {
+    width: 30px;
+    height: 30px;
+}
+
+footer ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer li {
+    margin: 0 15px;
+}
+
+footer li a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+footer li a:hover img {
+    transform: scale(1.2);
+}
+
+main {
+    padding: 150px 20px 50px;
+}
+
+.change-password-section {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 50px;
+    margin: 20px auto;
+    width: 300px;
+}
+
+.change-password-section h2 {
+    color: #ffffff;
+}
+
+.password-forms {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group h3 {
+    color: #ffffff;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.change-password-button {
+    background-color: #004d40;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.change-password-button:hover {
+    background-color: #4CAF50;
+}
+
+.paragrafoindex {
+    color: #ffffff;
+}
+
+.quemsomos {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 50px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: left;
+}
+
+.quemsomos p {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.quemsomos h2 {
+    color: #ffffff;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 800px;
+    margin: 0 auto;
+}

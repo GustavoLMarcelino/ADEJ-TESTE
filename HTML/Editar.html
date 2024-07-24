@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Beneficiado - ADEJ</title>
+    <link rel="stylesheet" href="./CSS/Editar.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = window.location.pathname.split('/').pop();
+
+            if (id) {
+                const response = await fetch(`/api/beneficiado/${id}`);
+                const beneficiado = await response.json();
+
+                if (beneficiado) {
+                    document.getElementById('form-edicao').action = `/edit/${id}`;
+                    document.getElementById('nome').value = beneficiado.nome;
+                    document.getElementById('data-nascimento').value = beneficiado.dataNascimento.split('T')[0];
+                    document.getElementById('sexo').value = beneficiado.sexo;
+                    document.getElementById('telefone').value = beneficiado.telefone;
+                    document.getElementById('peso').value = beneficiado.peso;
+                    document.getElementById('altura').value = beneficiado.altura;
+                    document.getElementById('estado-civil').value = beneficiado.estadoCivil;
+                    document.getElementById('naturalidade').value = beneficiado.naturalidade;
+                    document.getElementById('cpf').value = beneficiado.cpf;
+                    document.getElementById('rg').value = beneficiado.rg;
+                    document.getElementById('renda-familiar').value = beneficiado.rendaFamiliar;
+                    document.getElementById('endereco').value = beneficiado.endereco;
+                    document.getElementById('email').value = beneficiado.email;
+                    document.getElementById('contato-emergencia').value = beneficiado.contatoEmergencia;
+                    document.getElementById('relacao').value = beneficiado.relacao;
+                    document.getElementById('nome-responsavel').value = beneficiado.nomeResponsavel;
+                    document.getElementById('cadastro-unico').checked = beneficiado.cadastroUnico !== null;
+                    document.getElementById('cadastro-unico-text').value = beneficiado.cadastroUnico || '';
+
+                    const condicao = beneficiado.Condicaos[0];
+                    if (condicao) {
+                        document.getElementById('tipo').value = condicao.tipo;
+                        document.getElementById('condicao').value = condicao.condicao;
+                        document.getElementById('cid').value = condicao.cid;
+                        document.getElementById('pis').value = condicao.pis;
+                        document.getElementById('nis').value = condicao.nis;
+                        document.getElementById('medicacao').value = condicao.medicacao;
+                        document.getElementById('equipamento_locomocao').value = condicao.equipamentoLocomocao;
+                        document.getElementById('tipos_tratamento').value = condicao.tiposTratamento;
+                        document.getElementById('servicos_utilizados').value = condicao.servicosUtilizados;
+                        document.getElementById('uso_continuo_medicamento').value = condicao.usoContinuoMedicamento;
+                        document.getElementById('alergia').value = condicao.alergia;
+                        document.getElementById('alergia_medicamento').value = condicao.alergiaMedicamento;
+                        document.getElementById('observacoes').value = condicao.observacoes;
+                    }
+                }
+            }
+
+            // Configurar evento de clique no botão de deletar
+            document.getElementById('delete-button').addEventListener('click', async function() {
+                if (confirm('Você tem certeza que deseja deletar este beneficiado?')) {
+                    const response = await fetch(`/delete/${id}`, {
+                        method: 'DELETE'
+                    });
+                    if (response.ok) {
+                        window.location.href = '/consulta';
+                    } else {
+                        alert('Erro ao deletar o beneficiado');
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/"><img src="./imagens/logoAdej.png" width="35%"></a>
+            <ul>
+                <li><a href="/Consulta.html">Buscar</a></li>
+                <li><a href="/Cadastro.html">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="editar-section">
+            <h2>Editar Beneficiado</h2>
+            <form id="form-edicao" method="POST">
+                <div class="form-grid">
+                    <!-- Campos do formulário de edição -->
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="data-nascimento">Data de Nascimento</label>
+                        <input type="date" id="data-nascimento" name="data-nascimento" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sexo">Sexo</label>
+                        <select id="sexo" name="sexo" required>
+                            <option value="">Selecione</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="peso">Peso</label>
+                        <input type="number" id="peso" name="peso" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="altura">Altura</label>
+                        <input type="number" id="altura" name="altura" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="estado-civil">Estado Civil</label>
+                        <input type="text" id="estado-civil" name="estado-civil" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="naturalidade">Naturalidade</label>
+                        <input type="text" id="naturalidade" name="naturalidade" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" name="cpf" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rg">RG</label>
+                        <input type="text" id="rg" name="rg" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="renda-familiar">Renda Familiar</label>
+                        <input type="text" id="renda-familiar" name="renda-familiar" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" id="endereco" name="endereco" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contato-emergencia">Contato de Emergência</label>
+                        <input type="text" id="contato-emergencia" name="contato-emergencia" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="relacao">Relação</label>
+                        <input type="text" id="relacao" name="relacao" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nome-responsavel">Nome do Responsável</label>
+                        <input type="text" id="nome-responsavel" name="nome-responsavel" required>
+                    </div>
+                    <div class="form-group cadastro-unico">
+                        <label for="cadastro-unico">Cadastro Único</label>
+                        <input type="checkbox" id="cadastro-unico" name="cadastro-unico">
+                        <input type="text" id="cadastro-unico-text" name="cadastro-unico-text" placeholder="Digite o número do cadastro único">
+                    </div>
+
+                    <!-- Campos do formulário de condição -->
+                    <div class="form-group">
+                        <label for="tipo">Tipo</label>
+                        <input type="text" id="tipo" name="tipo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="condicao">Condição</label>
+                        <input type="text" id="condicao" name="condicao" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cid">CID</label>
+                        <input type="text" id="cid" name="cid" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pis">PIS</label>
+                        <input type="text" id="pis" name="pis" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nis">NIS</label>
+                        <input type="text" id="nis" name="nis" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="medicacao">Medicação</label>
+                        <input type="text" id="medicacao" name="medicacao">
+                    </div>
+                    <div class="form-group">
+                        <label for="equipamento_locomocao">Equipamento de Locomoção</label>
+                        <input type="text" id="equipamento_locomocao" name="equipamento_locomocao">
+                    </div>
+                    <div class="form-group">
+                        <label for="tipos_tratamento">Tipos de Tratamento</label>
+                        <input type="text" id="tipos_tratamento" name="tipos_tratamento">
+                    </div>
+                    <div class="form-group">
+                        <label for="servicos_utilizados">Serviços Utilizados</label>
+                        <input type="text" id="servicos_utilizados" name="servicos_utilizados">
+                    </div>
+                    <div class="form-group">
+                        <label for="uso_continuo_medicamento">Uso Contínuo de Medicamento</label>
+                        <input type="text" id="uso_continuo_medicamento" name="uso_continuo_medicamento">
+                    </div>
+                    <div class="form-group">
+                        <label for="alergia">Alergia</label>
+                        <input type="text" id="alergia" name="alergia">
+                    </div>
+                    <div class="form-group">
+                        <label for="alergia_medicamento">Alergia a Medicamento</label>
+                        <input type="text" id="alergia_medicamento" name="alergia_medicamento">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="observacoes">Observações</label>
+                        <textarea id="observacoes" name="observacoes"></textarea>
+                    </div>
+
+                    <!-- Botões de envio -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn-link">Salvar</button>
+                        <button type="button" id="delete-button" class="btn-link btn-danger">Deletar</button>
+                    </div>                
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>© 2024 ADEJ. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro - ADEJ</title>
+    <link rel="stylesheet" href="./CSS/Cadastro.css">
+    <script>
+        // JavaScript para mostrar/esconder a caixa de texto "Cadastro Único"
+        document.addEventListener('DOMContentLoaded', function() {
+            const cadastroUnicoCheckbox = document.getElementById('cadastro-unico');
+            const cadastroUnicoText = document.getElementById('cadastro-unico-text');
+
+            cadastroUnicoCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    cadastroUnicoText.style.display = 'block';
+                } else {
+                    cadastroUnicoText.style.display = 'none';
+                }
+            });
+
+            // Inicialmente esconder a caixa de texto
+            cadastroUnicoText.style.display = 'none';
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/home.html"><img src="imagens/logoAdej.png" width="35%"></a>
+            <ul>
+                <li><a href="Consulta.html">Buscar</a></li>
+                <li><a href="Cadastro.html">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="cadastro-section">
+            <h2>Cadastro</h2>
+            <form action="/cadastro" method="POST">
+                <div class="form-grid">
+                    <!-- Campos do formulário de cadastro -->
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="data-nascimento">Data de Nascimento</label>
+                        <input type="date" id="data-nascimento" name="data-nascimento" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sexo">Sexo</label>
+                        <select id="sexo" name="sexo" required>
+                            <option value="">Selecione</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="peso">Peso</label>
+                        <input type="number" id="peso" name="peso" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="altura">Altura</label>
+                        <input type="number" id="altura" name="altura" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="estado-civil">Estado Civil</label>
+                        <input type="text" id="estado-civil" name="estado-civil" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="naturalidade">Naturalidade</label>
+                        <input type="text" id="naturalidade" name="naturalidade" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" name="cpf" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rg">RG</label>
+                        <input type="text" id="rg" name="rg" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="renda-familiar">Renda Familiar</label>
+                        <input type="text" id="renda-familiar" name="renda-familiar" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" id="endereco" name="endereco" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contato-emergencia">Contato de Emergência</label>
+                        <input type="text" id="contato-emergencia" name="contato-emergencia" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="relacao">Relação</label>
+                        <input type="text" id="relacao" name="relacao" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nome-responsavel">Nome do Responsável</label>
+                        <input type="text" id="nome-responsavel" name="nome-responsavel" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cadastro-unico">Cadastro Único</label>
+                        <input type="checkbox" id="cadastro-unico" name="cadastro-unico">
+                        <input type="text" id="cadastro-unico-text" name="cadastro-unico-text" placeholder="Digite o número do cadastro único">
+                    </div>
+
+                    <!-- Campos do formulário de condição -->
+                    <div class="form-group">
+                        <label for="tipo">Tipo</label>
+                        <input type="text" id="tipo" name="tipo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="condicao">Condição</label>
+                        <input type="text" id="condicao" name="condicao" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cid">CID</label>
+                        <input type="text" id="cid" name="cid" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pis">PIS</label>
+                        <input type="text" id="pis" name="pis" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nis">NIS</label>
+                        <input type="text" id="nis" name="nis" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="medicacao">Medicação</label>
+                        <input type="text" id="medicacao" name="medicacao">
+                    </div>
+                    <div class="form-group">
+                        <label for="equipamentoLocomocao">Equipamento de Locomoção</label>
+                        <input type="text" id="equipamentoLocomocao" name="equipamentoLocomocao">
+                    </div>
+                    <div class="form-group">
+                        <label for="tiposTratamento">Tipos de Tratamento</label>
+                        <input type="text" id="tiposTratamento" name="tiposTratamento">
+                    </div>
+                    <div class="form-group">
+                        <label for="servicosUtilizados">Serviços Utilizados</label>
+                        <input type="text" id="servicosUtilizados" name="servicosUtilizados">
+                    </div>
+                    <div class="form-group">
+                        <label for="usoContinuoMedicamento">Uso Contínuo de Medicamento</label>
+                        <input type="text" id="usoContinuoMedicamento" name="usoContinuoMedicamento">
+                    </div>
+                    <div class="form-group">
+                        <label for="alergia">Alergia</label>
+                        <input type="text" id="alergia" name="alergia">
+                    </div>
+                    <div class="form-group">
+                        <label for="alergiaMedicamento">Alergia a Medicamento</label>
+                        <input type="text" id="alergiaMedicamento" name="alergiaMedicamento">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="observacoes">Observações</label>
+                        <textarea id="observacoes" name="observacoes"></textarea>
+                    </div>
+
+                    <!-- Botões de envio -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn-link">Cadastrar</button>
+                    </div>                
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>© 2024 ADEJ. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

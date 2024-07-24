@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pesquisa - ADEJ</title>
+    <link rel="stylesheet" href="CSS/consulta-styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchAndDisplayBeneficiados();
+
+            document.querySelector('.search-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                fetchAndDisplayBeneficiados();
+            });
+        });
+
+        async function fetchAndDisplayBeneficiados() {
+            const form = document.querySelector('.search-form');
+            const formData = new FormData(form);
+            const queryString = new URLSearchParams(formData).toString();
+            const response = await fetch(`/api/beneficiados?${queryString}`);
+            const results = await response.json();
+            const resultBody = document.getElementById('result-body');
+            resultBody.innerHTML = '';
+
+            results.forEach(result => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><input type="checkbox"></td>
+                    <td>${result.nome}</td>
+                    <td>${result.id}</td>
+                    <td>${result.cpf}</td>
+                    <td>${result.sexo}</td>
+                    <td>${result.condicao}</td>
+                    <td>${result.medicacao}</td>
+                    <td>${result.telefone}</td>
+                    <td>${result.email}</td>
+                    <td>${result.rendaFamiliar}</td>
+                    <td>${result.dataNascimento}</td>
+                    <td>${result.dataInscricao}</td>
+                    <td><a href="/edit/${result.id}">Editar</a></td>
+                `;
+                resultBody.appendChild(row);
+            });
+
+            document.getElementById('results-count').innerText = `${results.length} Ficha(s) Selecionadas`;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/"><img src="imagens/logoAdej.png" width="35%"></a>
+            <ul>
+                <li><a href="Consulta.html">Buscar</a></li>
+                <li><a href="Cadastro.html">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="search-section">
+            <h2>Pesquisa</h2>
+            <form class="search-form">
+                <div class="form-row">
+                    <input type="text" placeholder="Nome" name="nome">
+                    <input type="text" placeholder="ID" name="id">
+                    <input type="text" placeholder="CPF" name="cpf">
+                </div>
+                <div class="form-row">
+                    <select name="sexo">
+                        <option value="">Sexo</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                    </select>
+                    <input type="text" placeholder="Condição" name="condicao">
+                    <input type="text" placeholder="Telefone" name="telefone">
+                </div>
+                <div class="form-row">
+                    <input type="date" placeholder="Data de Nascimento" name="data_nascimento">
+                    <input type="date" placeholder="Data de Inscrição" name="data_inscricao">
+                    <input type="text" placeholder="Renda" name="renda">
+                </div>
+                <div class="form-row">
+                    <input type="text" placeholder="Medicação" name="medicacao">
+                    <input type="email" placeholder="E-mail" name="email">
+                </div>
+                <div class="form-row">
+                    <button type="submit">Pesquisar</button>
+                    <button type="reset">Limpar</button>
+                </div>
+            </form>
+            <div class="results">
+                <h3 id="results-count">0 Ficha(s) Selecionadas</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Nome</th>
+                            <th>ID</th>
+                            <th>CPF</th>
+                            <th>Sexo</th>
+                            <th>Condição</th>
+                            <th>Medicação</th>
+                            <th>Telefone</th>
+                            <th>E-mail</th>
+                            <th>Renda</th>
+                            <th>Data de Nascimento</th>
+                            <th>Data de Inscrição</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="result-body">
+                        <!-- Resultados da pesquisa serão inseridos aqui -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>© 2024 ADEJ. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

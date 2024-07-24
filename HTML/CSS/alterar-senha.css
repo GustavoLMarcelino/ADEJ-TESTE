@@ -1,0 +1,160 @@
+body {
+    font-family: Helvetica, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #004d40; /* Adicionado para garantir a consistência com o nav */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px; /* Alterado para 10px 20px para espaçamento uniforme */
+    border-bottom: 2px solid #4CAF50;
+    background-color: #004d40;
+    color: #fff; /* Certificando que o texto do nav é branco */
+}
+
+nav ul {
+    display: flex;
+    align-items: center; /* Alterado para alinhar os itens do menu */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav li a {
+    color: #fff;
+    font-size: 1.2em;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav li a:hover {
+    background-color: #4CAF50; /* Adicionando um efeito hover */
+}
+
+main {
+    padding: 20px;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* Garantindo que o main ocupe a altura correta */
+    background-color: #e0e7ff;
+}
+
+.change-password-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    max-width: 800px;
+    width: 100%;
+    margin-top: 20px;
+    border-left: 10px solid #004d40;
+    color: #004d40; /* Alterado para garantir contraste */
+}
+
+.change-password-section h2 {
+    text-align: center;
+    color: #004d40; /* Garantindo que o texto seja legível */
+}
+
+.password-forms {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.form-group {
+    background-color: #f9f9f9; /* Mudança para melhorar o contraste */
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.form-group h3 {
+    text-align: center;
+    color: #004d40; /* Garantindo que o texto seja legível */
+}
+
+.form-group form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin: 10px 0 5px;
+    color: #004d40; /* Garantindo que o texto seja legível */
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ccc; /* Mudança para melhorar a legibilidade */
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.change-password-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.change-password-button:hover {
+    background-color: #1c86ee;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 800px;
+    margin: 0 auto;
+}

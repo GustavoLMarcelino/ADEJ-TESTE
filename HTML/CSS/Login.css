@@ -1,0 +1,204 @@
+body {
+    font-family: Helvetica;
+    text-align: center;
+    color: #fff;
+    background-color: #004D40;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px; /* Alterado para 10px 20px para espaçamento uniforme */
+    border-bottom: 2px solid #4CAF50;
+    background-color: #004d40;
+    color: #fff; /* Certificando que o texto do nav é branco */
+}
+
+nav ul {
+    display: flex;
+    align-items: center; /* Alterado para alinhar os itens do menu */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav li a {
+    color: #fff;
+    font-size: 1.2em;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav li a:hover {
+    background-color: #4CAF50; /* Adicionando um efeito hover */
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+main {
+    font-family: Helvetica;
+    text-align: center;
+    padding: 100px;
+    margin-top: 80px;
+    background-image: url(/imagens/adejfrente.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+footer ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: right;
+    width: 10%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+footer li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav p {
+    font-size: x-large;
+}
+
+section {
+    width: 300px;
+    padding: 50px;
+    margin: 20px auto; 
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+section h2 {
+    color: #fff;
+}
+
+.login-form {
+    text-align: left; 
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 7px;
+}
+
+button.login-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4caf40;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button.login-button:hover {
+    background-color: #4caf40;
+}
+
+.quemsomos p {
+    color: #fff;
+}
+
+.quemsomos h2 {
+    color: #ffffff;
+}
+
+.forgot-password {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #ddd;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.register-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.register-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4caf40;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.register-button:hover {
+    background-color: #4caf40;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
